@@ -13,8 +13,8 @@ on:
     - cron: "0 6 * * 1"   # Mondays 06:00 UTC
   push:
     paths:
-      - "docker/llama-cpp-cuda/**"
-      - ".github/workflows/llama-cpp-cuda.yml"
+      - "docker/cuda/**"
+      - ".github/workflows/cuda.yml"
 
 permissions:
   contents: read
@@ -72,8 +72,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          context: docker/llama-cpp-cuda
-          file: docker/llama-cpp-cuda/Dockerfile
+          context: docker/cuda
+          file: docker/cuda/Dockerfile
           push: true
           tags: ${{ steps.tags.outputs.tags }}
           platforms: linux/amd64
